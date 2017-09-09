@@ -119,12 +119,21 @@
                     // you can name it anything
                     webrtc.joinRoom("room " + room);
                 });
-            })
-            $("#send").on('click', function () {
+            });
+
+            var emitMsg = function () {
                 console.log($("#m").val());
                 socket.emit("chat message", $("#m").val());
                 $("#m").val("");
                 return false;
+            };
+
+            $("#send").on('click', function () {
+                emitMsg();
+            });
+
+            $("#m").keyup(function(event) {
+                if (event.which == 13) emitMsg();
             });
 
             socket.on("chat message", function (msg) {
@@ -133,7 +142,7 @@
                     "</div></div ></article>"
                 );
                 $("#messages").append(newMessage);
-                window.scrollTo(0, document.body.scrollHeight);
+                $("#messages").scrollTop(document.getElementById("messages").scrollHeight);
             });
         });
     </script>
