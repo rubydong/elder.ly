@@ -90,14 +90,25 @@
     <script>
         $(function() {
             var socket = io();
-            $(".material-icons").click(function() {
+
+            var emitMsg = function() {
                 socket.emit("message", $("#typing").val());
                 $("#typing").val("");
                 return false;
+            }
+            
+            $(".material-icons").click(function() {
+                emitMsg();
             });
+
+            $("#typing").keyup(function(event) {
+                if (event.which == 13) emitMsg();
+            });
+
             socket.on("message", function(message) {
                 $("#messages").append(
                     "<article> <div class='msg'> <div class='tri'></div> <div class='msg_inner'>" + message + "</div></div></article");
+                $("#messages").scrollTop(document.getElementById("messages").scrollHeight);
             });
         });
   
