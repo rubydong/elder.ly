@@ -6,16 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>OldRoulette</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="design.css">
 </head>
 
 <body>
     <div class="vid-container">
         <div class="video">
-            <img src="damir.jpg" alt="Damir">
+            <!-- <img src="damir.jpg" alt="Damir"> -->
+            <video id="localVideo" autoplay muted></video>
         </div>
         <div class="video">
-            <img src="jared.png" alt="Jared">
+            <!-- <img src="jared.png" alt="Jared"> -->
+            <video id="remoteVideo" autoplay></video>
         </div>
     </div>
 
@@ -77,10 +79,31 @@
 
             </section>
             <footer>
-                <textarea placeholder="Say something..."></textarea><i class="material-icons">send</i>
+                <textarea id="typing" placeholder="Say something..."></textarea><i class="material-icons">send</i>
             </footer>
         </section>
     </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/lib/adapter.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+      $(function() {
+        var socket = io();
+        $(".material-icons").click(function() {
+          socket.emit("chat message", $("#typing").val());
+          $("#typing").val("");
+          return false;
+        });
+        socket.on("chat message", function(msg) {
+          console.log("yoyo");
+          $("#messages").append(msg + "<br/>");
+        });
+      });
+  
+    </script>
+  
 </body>
+
 
 </html>

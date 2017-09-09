@@ -25,11 +25,7 @@ io.sockets.on('connection', function(socket) {
     log('Client said: ', message);
     // for a real app, would be room-only (not broadcast)
     socket.broadcast.emit('message', message);
-  });
-
-  socket.on('chat message', function(msg) {
-    io.emit('chat message', msg);
-    console.log('message: ' + msg);
+    io.emit('message', message);
   });
 
   socket.on('create or join', function(room) {

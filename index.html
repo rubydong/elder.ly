@@ -2,46 +2,108 @@
 <html>
 
 <head>
-
-  <title>Realtime communication with WebRTC</title>
-
-  <link rel="stylesheet" href="/css/main.css" />
-
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OldRoulette</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+    <link rel="stylesheet" href="design.css">
 </head>
 
 <body>
+    <div class="vid-container">
+        <div class="video">
+            <!-- <img src="damir.jpg" alt="Damir"> -->
+            <video id="localVideo" autoplay muted></video>
+        </div>
+        <div class="video">
+            <!-- <img src="jared.png" alt="Jared"> -->
+            <video id="remoteVideo" autoplay></video>
+        </div>
+    </div>
 
-  <h1>Realtime communication with WebRTC</h1>
+    <div class="chat-container">
+        <section class="suggestions">
+            <p>Suggestions</p>
+        </section>
+        <section id="main">
+            <section id="messages">
 
-  <div id="videos">
-    <video id="localVideo" autoplay muted></video>
-    <video id="remoteVideo" autoplay></video>
-  </div>
+                <article>
+                    <div class="msg">
+                        <div class="tri"></div>
+                        <div class="msg_inner">Hi sweetie</div>
+                    </div>
+                </article>
 
-  <div id="messages"></div>
-	<input type="text" id="typing">
-	<button id="send">send</button>
+                <article class="right">
+                    <div class="msg">
+                        <div class="tri"></div>
+                        <div class="msg_inner">Hello sweetheart. I'm coming home sooner today.</div>
+                    </div>
+                </article>
 
-  <script src="/socket.io/socket.io.js"></script>
-  <script src="js/lib/adapter.js"></script>
-  <script src="js/main.js"></script>
-  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-  <script>
-    $(function() {
-      var socket = io();
-      $("#send").click(function() {
-        socket.emit("chat message", $("#typing").val());
-        $("#typing").val("");
-        return false;
-      });
-      socket.on("chat message", function(msg) {
-        console.log("yoyo");
-        $("#messages").append(msg + "<br/>");
-      });
-    });
+                <article>
+                    <div class="msg">
+                        <div class="tri"></div>
+                        <div class="msg_inner">Yaaaay! Bring me some chocolate!</div>
+                    </div>
+                </article>
 
+                <article class="right">
+                    <div class="msg">
+                        <div class="tri"></div>
+                        <div class="msg_inner">Sure.</div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="msg">
+                        <div class="tri"></div>
+                        <div class="msg_inner">Ok. Bye!</div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="msg">
+                        <div class="tri"></div>
+                        <div class="msg_inner">Ok. Bye!</div>
+                    </div>
+                </article>
+
+                <article>
+                    <div class="msg">
+                        <div class="tri"></div>
+                        <div class="msg_inner">Ok. Bye!</div>
+                    </div>
+                </article>
+
+            </section>
+            <footer>
+                <textarea id="typing" placeholder="Say something..."></textarea><i class="material-icons">send</i>
+            </footer>
+        </section>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/lib/adapter.js"></script>
+    <script src="js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script>
+        $(function() {
+            var socket = io();
+            $(".material-icons").click(function() {
+                socket.emit("message", $("#typing").val());
+                $("#typing").val("");
+                return false;
+            });
+            socket.on("message", function(message) {
+                $("#messages").append(
+                    "<article> <div class='msg'> <div class='tri'></div> <div class='msg_inner'>" + message + "</div></div></article");
+            });
+        });
+  
     </script>
-
+  
 </body>
+
 
 </html>
