@@ -43,7 +43,7 @@ io.on("connection", function(socket) {
 
   socket.on("disconnect", function() {
     socket.leave(socket.room);
-    rooms[socket.room].numPeople--;
+    if (rooms[socket.room]) rooms[socket.room].numPeople--;
     console.log(rooms);
   });
 });
