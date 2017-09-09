@@ -33,8 +33,8 @@ var cache = exports.managers = {};
  * @api public
  */
 
-function lookup (uri, opts) {
-  if (typeof uri === 'object') {
+function lookup(uri, opts) {
+  if (typeof uri == 'object') {
     opts = uri;
     uri = undefined;
   }
@@ -44,14 +44,9 @@ function lookup (uri, opts) {
   var parsed = url(uri);
   var source = parsed.source;
   var id = parsed.id;
-  var path = parsed.path;
-  var sameNamespace = cache[id] && path in cache[id].nsps;
-  var newConnection = opts.forceNew || opts['force new connection'] ||
-                      false === opts.multiplex || sameNamespace;
-
   var io;
 
-  if (newConnection) {
+  if (opts.forceNew || opts['force new connection'] || false === opts.multiplex) {
     debug('ignoring socket cache for %s', source);
     io = Manager(source, opts);
   } else {
@@ -61,10 +56,8 @@ function lookup (uri, opts) {
     }
     io = cache[id];
   }
-  if (parsed.query && !opts.query) {
-    opts.query = parsed.query;
-  }
-  return io.socket(parsed.path, opts);
+
+  return io.socket(parsed.path);
 }
 
 /**
