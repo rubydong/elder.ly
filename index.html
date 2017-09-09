@@ -1,16 +1,49 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		
-	</head>
-	<body>
-		<h1>VIDEO CHAT FOR THE ELDERLY!</h1>
-		<form action="/">
-		What should we call you? <input type="text" name="name"> <br/>
-		Enter a room (leave blank if you want random) <input type="text" name="room"> 
-		<br/>
-		<button>Submit</button> 
-		</form>
-		
-	</body>
+
+<head>
+
+  <title>Realtime communication with WebRTC</title>
+
+  <link rel="stylesheet" href="/css/main.css" />
+
+</head>
+
+<body>
+
+  <h1>Realtime communication with WebRTC</h1>
+
+  <div id="videos">
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+  </div>
+
+  <h1>VIDEO CHAT FOR THE ELDERLY!</h1>
+	<div id="messages"></div>
+	<input type="text" id="typing">
+	<button id="send">send</button>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="js/lib/adapter.js"></script>
+  <script src="js/main.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+	<script>
+		$(function() {
+			var socket = io();
+			$("#send").click(function() {
+				socket.emit("chat message", $("#typing").val());
+				$("#typing").val("");
+				return false;
+			});
+			socket.on("chat message", function(msg) {
+        console.log("yoyo");
+				$("#messages").append(msg + "<br/>");
+			});
+		});
+
+	  </script>
+
+</body>
+
 </html>
