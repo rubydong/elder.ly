@@ -18,31 +18,29 @@
     <video id="remoteVideo" autoplay></video>
   </div>
 
-  <h1>VIDEO CHAT FOR THE ELDERLY!</h1>
-	<div id="messages"></div>
+  <div id="messages"></div>
 	<input type="text" id="typing">
 	<button id="send">send</button>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="js/lib/adapter.js"></script>
   <script src="js/main.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
-	<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-	<script>
-		$(function() {
-			var socket = io();
-			$("#send").click(function() {
-				socket.emit("chat message", $("#typing").val());
-				$("#typing").val("");
-				return false;
-			});
-			socket.on("chat message", function(msg) {
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script>
+    $(function() {
+      var socket = io();
+      $("#send").click(function() {
+        socket.emit("chat message", $("#typing").val());
+        $("#typing").val("");
+        return false;
+      });
+      socket.on("chat message", function(msg) {
         console.log("yoyo");
-				$("#messages").append(msg + "<br/>");
-			});
-		});
+        $("#messages").append(msg + "<br/>");
+      });
+    });
 
-	  </script>
+    </script>
 
 </body>
 
