@@ -61,7 +61,7 @@ socket.on('log', function(array) {
 
 function sendMessage(message) {
   console.log('Client sending message: ', message);
-  socket.emit('message', message);
+  // socket.emit('message', message);
 }
 
 // This client receives a message
@@ -200,7 +200,7 @@ function setLocalAndSendMessage(sessionDescription) {
   //  sessionDescription.sdp = preferOpus(sessionDescription.sdp);
   pc.setLocalDescription(sessionDescription);
   console.log('setLocalAndSendMessage sending message', sessionDescription);
-  sendMessage(sessionDescription);
+  // sendMessage(sessionDescription);
 }
 
 function onCreateSessionDescriptionError(error) {
