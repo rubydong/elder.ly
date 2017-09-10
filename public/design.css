@@ -3,6 +3,7 @@ body {
   display: flex;
   flex-flow: column nowrap;
   background-color: #fafafa;
+  margin: 3px;
 }
 
 .vid-container {
@@ -38,6 +39,11 @@ body {
     flex-flow: row nowrap;
     height: 100%;
   }
+
+  #remoteVideos {
+    width: 100%;
+    margin-top: -1%;
+  }
 }
 
 @media only screen and (max-width: 500px) {
@@ -52,6 +58,11 @@ body {
     flex-flow: row nowrap;
     height: 100%;
   }
+
+  #remoteVideos {
+    width: 100%;
+    margin-top: -1%;
+  }
 }
 
 .video {
@@ -59,6 +70,18 @@ body {
   overflow: hidden;
   border: 5px solid #efefef;
   border-radius: 8px;
+}
+
+#nametag {
+  position: fixed;
+  z-index: 2;
+  text-shadow: 1px 1px gray;
+  margin: 0;
+  width: 46%;
+  color: white;
+  letter-spacing: 0.5px;
+  padding: 12px;
+  background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */background: -webkit-linear-gradient(top, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */background: linear-gradient(to bottom, rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
 }
 
 #waiting {
@@ -75,12 +98,12 @@ body {
 
 #remoteVideos {
   width: 100%;
-  height: 540px;
 }
 
 #remoteVideos > video {
   width: 100%;
 }
+
 img {
   width: 100%;
 }
@@ -94,6 +117,11 @@ img {
 
 .suggestions {
   min-width: 300px;
+  margin: 50px 0px 0px 50px;
+}
+
+.suggs {
+ width: 80%;
 }
 
 @media only screen and (max-width: 650px) {
