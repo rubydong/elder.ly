@@ -57,6 +57,13 @@ body {
   overflow: hidden;
 }
 
+#waiting {
+  position: relative;
+  top: 46%;
+  transform: translateY(-50%);
+  text-align: center;
+}
+
 #localVideo {
   width: 100%;
 }
