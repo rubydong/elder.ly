@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700');
+
+body {
+    font-family: "Roboto";
+}
+
+video {
+  max-width: 100%;
+  width: 320px;
+}
+
+#welcome {
+    text-align: center;
+    line-height: 22px;
+    background-image: url("elderlybw.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+#welcome a{
+    text-decoration: none;
+    color: #fff;
+    background-color: #90C3D4;
+    padding: 10px 20px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);   
+}
+
+#welcome input[type="text"] {
+    width: 20%;
+}
+
+.enterName {
+    width: 60%;
+    margin: 0 auto;
+}
+
+#welcomeWords {
+    margin-top: 20%;
+    background-color: white;
+    opacity: 0.8;
+    width: 50%;
+    margin: auto;
+    border-radius: 10px;
+    padding: 15px 0;
+}
