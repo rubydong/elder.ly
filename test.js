@@ -10,11 +10,15 @@ for (var i = 0; i < 50; i++) {
   rooms.push({ id: i, numPeople: 0 });
 }
 
+app.use(express.static("css"));
+
 app.get("/", function(req, res) {
-  res.sendFile(__dirname + "/design.html");
+  res.sendFile(__dirname + "/index.html");
 });
 
-app.use(express.static("css"));
+app.get("/chat", function(req, res) {
+  res.sendFile(__dirname + "/design.html");
+});
 
 io.on("connection", function(socket) {
   // Handles chat messages to rooms
@@ -38,13 +42,13 @@ io.on("connection", function(socket) {
     socket.join(room.id);
     socket.emit("room", room.id);
 
-    console.log(rooms);
+//    console.log(rooms);
   });
 
   socket.on("disconnect", function() {
     socket.leave(socket.room);
     if (rooms[socket.room]) rooms[socket.room].numPeople--;
-    console.log(rooms);
+//    console.log(rooms);
   });
 });
 

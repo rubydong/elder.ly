@@ -2,120 +2,15 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>OldRoulette</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
     <link rel="stylesheet" href="design.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 
-<body>
-    <div class="vid-container">
-        <div class="video">
-            <!-- <img src="damir.jpg" alt="Damir"> -->
-            <video id="localVideo" autoplay muted></video>
-        </div>
-        <div class="video">
-            <!-- <img src="jared.png" alt="Jared"> -->
-            <video id="remoteVideo" autoplay></video>
-        </div>
-    </div>
-
-    <div class="chat-container">
-        <section class="suggestions">
-            <p>Suggestions</p>
-        </section>
-        <section id="main">
-            <section id="messages">
-
-                <article>
-                    <div class="msg">
-                        <div class="tri"></div>
-                        <div class="msg_inner">Hi sweetie</div>
-                    </div>
-                </article>
-
-                <article class="right">
-                    <div class="msg">
-                        <div class="tri"></div>
-                        <div class="msg_inner">Hello sweetheart. I'm coming home sooner today.</div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="msg">
-                        <div class="tri"></div>
-                        <div class="msg_inner">Yaaaay! Bring me some chocolate!</div>
-                    </div>
-                </article>
-
-                <article class="right">
-                    <div class="msg">
-                        <div class="tri"></div>
-                        <div class="msg_inner">Sure.</div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="msg">
-                        <div class="tri"></div>
-                        <div class="msg_inner">Ok. Bye!</div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="msg">
-                        <div class="tri"></div>
-                        <div class="msg_inner">Ok. Bye!</div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="msg">
-                        <div class="tri"></div>
-                        <div class="msg_inner">Ok. Bye!</div>
-                    </div>
-                </article>
-
-            </section>
-            <footer>
-                <textarea id="typing" placeholder="Say something..."></textarea><i class="material-icons">send</i>
-            </footer>
-        </section>
-    </div>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="js/lib/adapter.js"></script>
-    <script src="js/main.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
-    <script>
-        $(function () {
-            var socket = io();
-
-            var emitMsg = function () {
-                socket.emit("message", $("#typing").val());
-                $("#messages").append(
-                    "<article class='right'> <div class='msg'> <div class='tri'></div> <div class='msg_inner'>" + message + "</div></div></article");
-
-                $("#typing").val("");
-                return false;
-            }
-
-            $(".material-icons").click(function () {
-                emitMsg();
-            });
-
-            $("#typing").keyup(function (event) {
-                if (event.which == 13) emitMsg();
-            });
-
-            socket.on("message", function (message) {
-                $("#messages").append(
-                    "<article> <div class='msg'> <div class='tri'></div> <div class='msg_inner'>" + message + "</div></div></article");
-                $("#messages").scrollTop(document.getElementById("messages").scrollHeight);
-            });
-        });
-    </script>
-
+<body id="welcome">
+    <h1>Welcome to Elder.ly!</h1>
+    This is a video chat website made specifically for the elderly. <br/>
+    Click below to meet your next best friend! <p>
+    <a id="enter" href="/chat">Enter Chat</a>
 </body>
 
 
