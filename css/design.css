@@ -84,6 +84,14 @@ img {
   min-width: 300px;
 }
 
+@media only screen and (max-width: 650px) {
+  .suggestions {
+    display: none;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,700');
+
 #main {
   flex-grow: 1;
   height: 100%;
@@ -169,7 +177,6 @@ img {
 
 .right {
   flex-direction: row-reverse;
-  /* background-color: #AEDBEB; */
 }
 
 .right .msg {
@@ -181,12 +188,11 @@ img {
   height: 0;
   border-style: solid;
   border-width: 15px 10px 0 0;
-  border-color: #AEDBEB transparent transparent transparent;
+  border-color: #ffffff transparent transparent transparent;
 }
 
 .right .msg .msg_inner {
   border-radius: 4px 0 4px 4px;
   box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1);
   text-align: right;
-  background-color: #AEDBEB;
 }
