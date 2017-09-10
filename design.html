@@ -123,7 +123,15 @@
 
             var emitMsg = function () {
                 console.log($("#m").val());
-                socket.emit("chat message", $("#m").val());
+                var msg = $("#m").val();
+                socket.emit("chat message", msg);
+
+                var newMessage = $("<article class='right'><div class='msg'><div class='tri'></div><div class='msg_inner'>" +
+                    msg +
+                    "</div></div ></article>"
+                );
+                $("#messages").append(newMessage);
+                $("#messages").scrollTop(document.getElementById("messages").scrollHeight);
                 $("#m").val("");
                 return false;
             };
@@ -132,7 +140,7 @@
                 emitMsg();
             });
 
-            $("#m").keyup(function(event) {
+            $("#m").keyup(function (event) {
                 if (event.which == 13) emitMsg();
             });
 

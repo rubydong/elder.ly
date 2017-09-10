@@ -20,7 +20,7 @@ io.on("connection", function(socket) {
   // Handles chat messages to rooms
   socket.on("chat message", function(msg) {
     console.log(msg);
-    io.to(socket.room).emit("chat message", msg);
+    socket.broadcast.to(socket.room).emit("chat message", msg);
   });
 
   // Adds user to room

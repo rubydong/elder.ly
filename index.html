@@ -88,32 +88,34 @@
     <script src="js/main.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
-        $(function() {
+        $(function () {
             var socket = io();
 
-            var emitMsg = function() {
+            var emitMsg = function () {
                 socket.emit("message", $("#typing").val());
+                $("#messages").append(
+                    "<article class='right'> <div class='msg'> <div class='tri'></div> <div class='msg_inner'>" + message + "</div></div></article");
+
                 $("#typing").val("");
                 return false;
             }
-            
-            $(".material-icons").click(function() {
+
+            $(".material-icons").click(function () {
                 emitMsg();
             });
 
-            $("#typing").keyup(function(event) {
+            $("#typing").keyup(function (event) {
                 if (event.which == 13) emitMsg();
             });
 
-            socket.on("message", function(message) {
+            socket.on("message", function (message) {
                 $("#messages").append(
                     "<article> <div class='msg'> <div class='tri'></div> <div class='msg_inner'>" + message + "</div></div></article");
                 $("#messages").scrollTop(document.getElementById("messages").scrollHeight);
             });
         });
-  
     </script>
-  
+
 </body>
 
 
