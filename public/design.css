@@ -2,6 +2,7 @@ body {
   height: 100vh;
   display: flex;
   flex-flow: column nowrap;
+  background-color: #fafafa;
 }
 
 .vid-container {
@@ -56,6 +57,8 @@ body {
 .video {
   flex: 1;
   overflow: hidden;
+  border: 5px solid #efefef;
+  border-radius: 8px;
 }
 
 #waiting {
@@ -63,6 +66,7 @@ body {
   top: 46%;
   transform: translateY(-50%);
   text-align: center;
+  z-index: -1;
 }
 
 #localVideo {
@@ -115,15 +119,18 @@ img {
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  border: 1px solid #efefef;
+  border-radius: 15px;
+  margin: 5px;
 }
 
 #main footer textarea {
   flex-grow: 2;
-  margin: 0 10px;
+  margin: 0 15px;
   resize: none;
   border: none;
-  padding-top: 5px;
   height: 20px;
+  margin-bottom: 5px;
 }
 
 #main footer textarea:focus {
@@ -134,12 +141,15 @@ img {
   color: #c0c0c0;
   cursor: pointer;
   cursor: hand;
+  margin-right: 5px;
 }
 
 #messages {
   overflow: auto;
   flex-grow: 2;
   padding: 10px;
+  border: 5px solid #efefef;
+  border-radius: 8px;
 }
 
 #messages article {
