@@ -10,6 +10,48 @@ body {
   width: 100%;
 }
 
+@media only screen and (max-width: 900px) {
+  .vid-container {
+    width: 100%;
+    flex: 0.7;
+  }
+
+  .chat-container {
+    display: flex;
+    flex: 3;
+    flex-flow: row nowrap;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .vid-container {
+    width: 100%;
+    flex: 0.4;
+  }
+
+  .chat-container {
+    display: flex;
+    flex: 3;
+    flex-flow: row nowrap;
+    height: 100%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .vid-container {
+    width: 100%;
+    flex: 0.3;
+  }
+
+  .chat-container {
+    display: flex;
+    flex: 3;
+    flex-flow: row nowrap;
+    height: 100%;
+  }
+}
+
 .video {
   flex: 1;
   overflow: hidden;
