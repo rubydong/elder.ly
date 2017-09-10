@@ -17,11 +17,9 @@
 <body>
     <div class="vid-container">
         <div class="video">
-            <p class="nametag">Me</p>
             <video id="localVideo"></video>
         </div>
         <div class="video">
-            <p class="nametag">You</p>
             <div id="remoteVideos"></div>
         </div>
     </div>
@@ -38,55 +36,6 @@
         </section>
         <section id="main">
             <section id="messages">
-
-                <article>
-                    <div class="msg">
-                        <div class="tri"></div>
-                        <div class="msg_inner">Hi sweetie</div>
-                    </div>
-                </article>
-
-                <article class="right">
-                    <div class="msg">
-                        <div class="tri"></div>
-                        <div class="msg_inner">Hello sweetheart. I'm coming home sooner today.</div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="msg">
-                        <div class="tri"></div>
-                        <div class="msg_inner">Yaaaay! Bring me some chocolate!</div>
-                    </div>
-                </article>
-
-                <article class="right">
-                    <div class="msg">
-                        <div class="tri"></div>
-                        <div class="msg_inner">Sure.</div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="msg">
-                        <div class="tri"></div>
-                        <div class="msg_inner">Ok. Bye!</div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="msg">
-                        <div class="tri"></div>
-                        <div class="msg_inner">Ok. Bye!</div>
-                    </div>
-                </article>
-
-                <article>
-                    <div class="msg">
-                        <div class="tri"></div>
-                        <div class="msg_inner">Ok. Bye!</div>
-                    </div>
-                </article>
 
             </section>
             <footer>
@@ -109,7 +58,6 @@
             var socket = io();
             socket.on("connect", function () {
                 // call the server-side function 'adduser' and send one parameter (value of prompt)
-                var name = prompt("What's your name?");
 
                 if (name !== null) {
                     socket.emit("adduser", name);
