@@ -41,7 +41,6 @@ io.on("connection", function(socket) {
     socket.room = room.id;
     socket.join(room.id);
     socket.emit("room", room.id);
-
 //    console.log(rooms);
   });
 
