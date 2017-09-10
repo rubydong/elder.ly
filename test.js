@@ -20,7 +20,7 @@ io.on("connection", function(socket) {
   // Handles chat messages to rooms
   socket.on("chat message", function(msg) {
     console.log(msg);
-    io.to(socket.room).emit("chat message", msg);
+    socket.broadcast.to(socket.room).emit("chat message", msg);
   });
 
   // Adds user to room
@@ -43,7 +43,7 @@ io.on("connection", function(socket) {
 
   socket.on("disconnect", function() {
     socket.leave(socket.room);
-    rooms[socket.room].numPeople--;
+    if (rooms[socket.room]) rooms[socket.room].numPeople--;
     console.log(rooms);
   });
 });
