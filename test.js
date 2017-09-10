@@ -10,7 +10,7 @@ for (var i = 0; i < 50; i++) {
   rooms.push({ id: i, numPeople: 0 });
 }
 
-app.use(express.static("css"));
+app.use(express.static("public"));
 
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/index.html");
