@@ -3,7 +3,6 @@ body {
   display: flex;
   flex-flow: column nowrap;
   background-color: #fafafa;
-  margin: 3px;
 }
 
 .vid-container {
@@ -11,6 +10,7 @@ body {
   flex: 1;
   width: 100%;
   background-color: #fafafa;
+  padding: 2px;
 }
 
 @media only screen and (max-width: 900px) {
@@ -113,6 +113,7 @@ img {
   flex: 1;
   flex-flow: row nowrap;
   height: 100%;
+  padding: 2px;
 }
 
 .suggestions {
@@ -228,12 +229,12 @@ img {
   height: 0;
   border-style: solid;
   border-width: 15px 10px 0 0;
-  border-color: #90C3D4 transparent transparent transparent;
+  border-color: #7fd7f4 transparent transparent transparent;
 }
 
 .right .msg .msg_inner {
   border-radius: 4px 0 4px 4px;
   box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1);
   text-align: right;
-  background-color: #90C3D4;
+  background-color: #7fd7f4;
 }

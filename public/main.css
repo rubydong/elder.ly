@@ -12,40 +12,58 @@ video {
 #welcome {
     text-align: center;
     line-height: 22px;
-    /* background-image: url("elderlybw.jpg"); 
-    background-size: cover;
-    background-repeat: no-repeat; */
-    /* font-size: 22px; */
+    background: #7fd7f4;
 }
 
-#welcome a{
+#enter {
     text-decoration: none;
     color: #fff;
-    background-color: #90C3D4;
-    padding: 10px 20px;
-    border-radius: 4px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);   
+    background-color: #FF8585;
+    padding: 12.5px 28px;
+    margin-top: 20px;
+    letter-spacing: 3px;
+    font-weight: 550;
+    font-size: 120%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: white;
 }
 
 #welcome input[type="text"] {
     width: 30%;
+    background-color: #fafafa;
+    border-width: 0px;
+    width: 140px;
+    height: 22px;
 }
 
 .enterName {
     width: 60%;
     margin: 0 auto;
+    line-height: 25px;
 }
 
 #welcomeWords {
-    background-color: white;
-    opacity: 0.8;
     width: 50%;
     margin: auto;
-    margin-top: 15%;
+    margin-top: 10%;
     border-radius: 10px;
     padding: 15px 0;
+    color: white;
 }
 
 #welcomeWords h1 {
     line-height: 30px;
+    letter-spacing: 33px;
+    color: white;
+    font-size: 650%;
+    font-weight: bold;
+    text-align: center;
+}
+
+#tagline {
+  font-style: italic;
+  font-size: 125%;
+  letter-spacing: 2.5px;
+  margin: 5px 0;
 }
